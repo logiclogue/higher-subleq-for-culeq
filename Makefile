@@ -1,19 +1,22 @@
 SRC_DIR=lib
 BUILD_DIR=build
 HSQ_SRC=$(SRC_DIR)/hsq.cpp
-HSQ_BUILD=$(BUILD_DIR)/hsq
+HSQ=$(BUILD_DIR)/hsq
+
+%.hsq: install
+	./$(HSQ) -q -o $@ > $(BUILD_DIR)/$(*F).sq
 
 all: install
 
-install: $(HSQ_BUILD)
+install: $(HSQ)
 
 clean:
 	rm -rf lib
 	rm -rf build
 
-$(HSQ_BUILD): $(HSQ_SRC)
+$(HSQ): $(HSQ_SRC)
 	mkdir -p $(BUILD_DIR)
-	g++ $(HSQ_SRC) -o $(HSQ_BUILD)
+	g++ $(HSQ_SRC) -o $(HSQ)
 
 $(HSQ_SRC):
 	mkdir -p $(SRC_DIR)
