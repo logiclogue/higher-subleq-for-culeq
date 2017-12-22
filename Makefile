@@ -3,9 +3,6 @@ BUILD_DIR=build
 HSQ_SRC=$(SRC_DIR)/hsq.cpp
 HSQ=$(BUILD_DIR)/hsq
 
-%.hsq: install
-	./$(HSQ) -q -o $@
-
 all: install
 
 install: $(HSQ)
