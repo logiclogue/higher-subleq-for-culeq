@@ -4,7 +4,7 @@ HSQ_SRC=$(SRC_DIR)/hsq.cpp
 HSQ=$(BUILD_DIR)/hsq
 
 %.hsq: install
-	./$(HSQ) -q -o $@ > $(BUILD_DIR)/$(*F).sq
+	./$(HSQ) -q -o $@
 
 all: install
 
